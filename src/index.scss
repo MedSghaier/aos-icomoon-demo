@@ -1,0 +1,20 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+
+// Local Styles
+
+/*
+-----------------------------------------
+Vendors
+-----------------------------------------
+*/
+
+// Importing the style configuration for the icomoon web font + the icons variables
+// Icomoon
+
+@import "sass/vendors/icomoon/icomoon";

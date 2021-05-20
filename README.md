@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Demo app to demonstrate the use icomoon in a react appp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrate the use of the icomoon tool using 2 differents methods:
+* Using the webfont provided by the tool (converted to woff|woff2)
+* Using a json file that icludes the path of all the icons (also provided by the icomoon tool)
 
-## Available Scripts
+## Getting Started
+```console
+git clone git@github.com:MedSghaier/aos-icomoon-demo.git
+```
 
-In the project directory, you can run:
+```console
+yarn install
+```
 
-### `yarn start`
+```console
+yarn start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Results and highlights
+The use of this tool seems to be very promising, with around **100 icons** (which is an absurd number of icons for any giving app) the size of the  generated webfonts is around **10kb** and will eventually get cached in rhe browser, even with the json file method (found at */components/ico-s/selection.json*) the file size is around **186kb**
+### Pros
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Have the flexibility to add our own icons (no need for extra icons but third party icons librairies that might not treeshake weel)
+2. Reference the icon only by its name, and pass it as a *string* prop to the Icon component
+3. With the webfont method, icons behave just like regular text, and can be styled as such
+4. Smaller bundle size and no svg in the final rendered output (using webfonts)
 
-### `yarn test`
+### Cons
+1. Each time we need to add a new icon, either a new webfont or a selection.json file needs to be generated to updated the icons list (alse update the variables.scss file found at *scss/vendors/icomoon/variables.scss* to update the before pseudo element content variable), and maually convert the webfont to woff|woff2 (because icomoon in its free version only gives ttf fonts but that can be easily done)
+2. Referencing the webfont in the scss file may be tricky and differs from module bundler to another (laravel-mix or simple webpack.config)
+3. When using the webfont approach, the same settings same of the previously generated font must be set (the prefix ``-ico`` and denerate ``scss file variables`` )
+![Settings](https://i.imgur.com/blNasBt.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

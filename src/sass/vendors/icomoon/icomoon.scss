@@ -1,0 +1,34 @@
+@import "variables";
+//  ../../../fonts/icoomoon/icomoon.woff
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('../../../fonts//icomoon//icomoon.woff2') format('woff2'),
+    url('../../../fonts//icomoon//icomoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none; 
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@each $alias, $ico in $ico-library {
+	.ico-#{$alias}{
+    &:before{
+      content: $ico; 
+    }
+	}
+}
